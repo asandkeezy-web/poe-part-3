@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="services.html">Services</a> |
+    <a href="gallery.html">Gallery</a> |
+    <a href="blogs.html">Blogs</a> |
+    <a href="contact.html">Contact</a>
+    <!-- UPGRADE: Search form -->
+    <form id="siteSearch" class="site-search" role="search" onsubmit="return false;" style="display:inline-block;margin-left:12px;">
+      <input id="searchInput" type="search" placeholder="Search site…" aria-label="Search site" style="padding:6px 10px;border-radius:6px;border:1px solid rgba(0,0,0,0.12);" />
+      <button id="searchBtn" type="button" style="padding:6px 10px;border-radius:6px;border:none;background:#fff;color:#c81919;margin-left:6px;">Search</button>
+    </form>
+    <!-- UPGRADE: Dark mode button -->
+    <button id="darkToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+  </nav>
+  <meta property="og:image" content="images/logo 2.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Build Fast Deliveries Pty Ltd">
+  <meta name="twitter:description" content="Fast, reliable delivery of building materials across Durban.">
+  <title>Gallery - Build Fast Deliveries</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .gallery { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+    .gallery h1 { text-align: center; color: #fff; margin-bottom: 40px; font-size: 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+    .gallery-slideshow { position: relative; width: 100%; min-height: 420px; margin-bottom: 30px; overflow: hidden; border-radius: 18px; background: #000; box-shadow: 0 18px 50px rgba(0,0,0,0.3); }
+    .slide { display: none; width: 100%; height: 100%; }
+    .slide.active { display: block; }
+    .slide img { width: 100%; height: 420px; object-fit: cover; display: block; }
+    .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: none; background: rgba(0,0,0,0.45); color: #fff; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; transition: background 0.2s ease; }
+    .slide-btn:hover { background: rgba(0,0,0,0.7); }
+    .slide-prev { left: 18px; }
+    .slide-next { right: 18px; }
+    .slide-counter { position: absolute; right: 18px; bottom: 18px; padding: 10px 16px; background: rgba(0,0,0,0.55); color: #fff; border-radius: 999px; font-size: 0.95rem; z-index: 2; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; width: 100%; }
+    .gallery-item { position: relative; overflow: hidden; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .gallery-item:hover { transform: translateY(-6px); box-shadow: 0 14px 32px rgba(0,0,0,0.35); }
+    .gallery-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 14px; cursor: pointer; display: block; }
+    .lightbox { position: fixed; inset: 0; display: none; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px); }
+    .lightbox img { max-width: 90%; max-height: 90%; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+    .lightbox.show { display: flex; }
+    @media(max-width: 1024px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+    @media(max-width: 768px) { .gallery-grid { grid-template-columns: 1fr; gap: 14px; } .gallery h1 { font-size: 1.8rem; } .slide img { height: 280px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-left">
+      <img src="images/logo 2.jpg" alt="logo">
+      <span>Build Fast Deliveries</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+      </ul>
+    </nav>
+    <!-- UPGRADE: Dark Mode Toggle button -->
+    <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+  </header>
+
+  <main>
+    <section class="gallery">
+      <h1 style="text-align:center; color:#fff; margin-top:40px;">Photo Gallery</h1>
+      <div class="gallery-slideshow">
+        <!-- UPGRADE: alt text added here - descriptive alt for each slideshow image -->
+        <div class="slide active"><img src="images/image 1.jpg" alt="Delivery truck loaded with building materials on the road"></div>
+        <div class="slide"><img src="images/image 2.jpg" alt="Construction materials being prepared for delivery"></div>
+        <div class="slide"><img src="images/image 3.jpg" alt="Build Fast Deliveries truck parked at a building site"></div>
+        <div class="slide"><img src="images/image 4.png" alt="Bags of cement stacked and ready for transport"></div>
+        <div class="slide"><img src="images/image 5.jpg" alt="Bulk sand pile loaded for delivery to a construction site"></div>
+        <div class="slide"><img src="images/image 6.jpg" alt="Timber planks stacked on a delivery truck"></div>
+        <div class="slide"><img src="images/image 7.jpg" alt="Building materials warehouse with stock ready for dispatch"></div>
+        <div class="slide"><img src="images/image 8.jpg" alt="Delivery driver unloading materials at a construction site"></div>
+        <div class="slide"><img src="images/image 9.jpg" alt="Bakkie loaded with smaller building supplies for transport"></div>
+        <div class="slide"><img src="images/image 10.jpg" alt="Stacked bricks ready for delivery to a building site"></div>
+        <div class="slide"><img src="images/image 11.jpg" alt="Construction site receiving a delivery of building materials"></div>
+        <div class="slide"><img src="images/image 12.jpg" alt="Stone and aggregate loaded for bulk delivery"></div>
+        <div class="slide"><img src="images/image 13.jpg" alt="Build Fast Deliveries team coordinating a site delivery"></div>
+        <div class="slide"><img src="images/image 14.jpg" alt="Mpho, a satisfied contractor client of Build Fast Deliveries"></div>
+        <div class="slide"><img src="images/image 15.jpg" alt="Lerato, a homeowner client of Build Fast Deliveries"></div>
+        <div class="slide"><img src="images/image 16.jpg" alt="Thabo, a site manager client of Build Fast Deliveries"></div>
+        <div class="slide"><img src="images/image 17.jpg" alt="Cement bags being delivered to a construction site"></div>
+        <div class="slide"><img src="images/image 18.jpg" alt="Bricks and blocks stacked for a delivery order"></div>
+        <div class="slide"><img src="images/image 19.jpg" alt="Sand and aggregate being loaded for a bulk delivery"></div>
+        <div class="slide"><img src="images/image 20.jpg" alt="Timber and wood panels loaded for transport"></div>
+        <div class="slide"><img src="images/image 21.jpg" alt="Steel and roof sheeting secured for delivery"></div>
+        <button class="slide-btn slide-prev" aria-label="Previous slide">&#10094;</button>
+        <button class="slide-btn slide-next" aria-label="Next slide">&#10095;</button>
+        <div class="slide-counter">1 / 21</div>
+      </div>
+      <div class="gallery-grid">
+        <!-- UPGRADE: alt text added here - descriptive alt for each grid thumbnail -->
+        <div class="gallery-item"><img src="images/image 1.jpg" alt="Delivery truck loaded with building materials on the road"></div>
+        <div class="gallery-item"><img src="images/image 2.jpg" alt="Construction materials being prepared for delivery"></div>
+        <div class="gallery-item"><img src="images/image 3.jpg" alt="Build Fast Deliveries truck parked at a building site"></div>
+        <div class="gallery-item"><img src="images/image 4.png" alt="Bags of cement stacked and ready for transport"></div>
+        <div class="gallery-item"><img src="images/image 5.jpg" alt="Bulk sand pile loaded for delivery to a construction site"></div>
+        <div class="gallery-item"><img src="images/image 6.jpg" alt="Timber planks stacked on a delivery truck"></div>
+        <div class="gallery-item"><img src="images/image 7.jpg" alt="Building materials warehouse with stock ready for dispatch"></div>
+        <div class="gallery-item"><img src="images/image 8.jpg" alt="Delivery driver unloading materials at a construction site"></div>
+        <div class="gallery-item"><img src="images/image 9.jpg" alt="Bakkie loaded with smaller building supplies for transport"></div>
+        <div class="gallery-item"><img src="images/image 10.jpg" alt="Stacked bricks ready for delivery to a building site"></div>
+        <div class="gallery-item"><img src="images/image 11.jpg" alt="Construction site receiving a delivery of building materials"></div>
+        <div class="gallery-item"><img src="images/image 12.jpg" alt="Stone and aggregate loaded for bulk delivery"></div>
+        <div class="gallery-item"><img src="images/image 13.jpg" alt="Build Fast Deliveries team coordinating a site delivery"></div>
+        <div class="gallery-item"><img src="images/image 14.jpg" alt="Mpho, a satisfied contractor client of Build Fast Deliveries"></div>
+        <div class="gallery-item"><img src="images/image 15.jpg" alt="Lerato, a homeowner client of Build Fast Deliveries"></div>
+        <div class="gallery-item"><img src="images/image 16.jpg" alt="Thabo, a site manager client of Build Fast Deliveries"></div>
+        <div class="gallery-item"><img src="images/image 17.jpg" alt="Cement bags being delivered to a construction site"></div>
+        <div class="gallery-item"><img src="images/image 18.jpg" alt="Bricks and blocks stacked for a delivery order"></div>
+        <div class="gallery-item"><img src="images/image 19.jpg" alt="Sand and aggregate being loaded for a bulk delivery"></div>
+        <div class="gallery-item"><img src="images/image 20.jpg" alt="Timber and wood panels loaded for transport"></div>
+        <div class="gallery-item"><img src="images/image 21.jpg" alt="Steel and roof sheeting secured for delivery"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <h3>Build Fast Deliveries</h3>
+    <p>📍 Address: 542 Building Street, Durban</p>
+    <p>📞 Call: 0635893179</p>
+    <p>✉️ Email: asandakeezy8@gmail.com</p>
+    <div class="footer-social">
+      <a href="https://facebook.com" target="_blank" rel="noreferrer">📘 Facebook</a>
+      <a href="https://instagram.com" target="_blank" rel="noreferrer">📸 Instagram</a>
+      <a href="https://twitter.com" target="_blank" rel="noreferrer">🐦 Twitter</a>
+    </div>
+    <p>© 2026 All rights reserved</p>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.gallery-slideshow .slide');
+    const prevButton = document.querySelector('.slide-prev');
+    const nextButton = document.querySelector('.slide-next');
+    const counter = document.querySelector('.slide-counter');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      if (!slides.length) return;
+      currentSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, idx) => slide.classList.toggle('active', idx === currentSlide));
+      if (counter) counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    }
+
+    function changeSlide(direction) {
+      showSlide(currentSlide + direction);
+    }
+
+    if (prevButton) prevButton.addEventListener('click', () => {
+      changeSlide(-1);
+      resetSlideInterval();
+    });
+    if (nextButton) nextButton.addEventListener('click', () => {
+      changeSlide(1);
+      resetSlideInterval();
+    });
+
+    let slideInterval = setInterval(() => changeSlide(1), 4000);
+    function resetSlideInterval() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(() => changeSlide(1), 4000);
+    }
+
+    document.querySelectorAll('.gallery-item img').forEach((img, index) => {
+      img.addEventListener('click', () => {
+        showSlide(index);
+        resetSlideInterval();
+        const slideshowTop = document.querySelector('.gallery-slideshow').offsetTop - 20;
+        window.scrollTo({ top: slideshowTop, behavior: 'smooth' });
+      });
+    });
+
+    const slideshow = document.querySelector('.gallery-slideshow');
+    if (slideshow) {
+      slideshow.addEventListener('mouseenter', () => clearInterval(slideInterval));
+      slideshow.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(() => changeSlide(1), 4000);
+      });
+    }
+
+    showSlide(0);
+  </script>  <!-- UPGRADE: Dark Mode Toggle script -->
+  <script src="theme.js"></script>
+  <script src="javascript/site-search.js"></script>
+</body>
+</html>
